@@ -2,11 +2,11 @@ from collections import deque
 
 def solution(prices):
     answer = []
-    prices_de = deque(prices)
+    prices = deque(prices)
     for i in range(len(prices)):
-        pri = prices_de.popleft()
+        pri = prices.popleft()
         cut = 0
-        for j in prices_de:
+        for j in prices:
             if pri <= j: cut += 1
             else:
                 cut += 1
