@@ -1,9 +1,8 @@
 def solution(k, m, score):
     answer = 0
     score.sort()
-    while True:
+    while len(score) >= m:
         fruit_box = []
-        if len(score) < m: break
         for _ in range(m):
             fruit_box.append(score.pop())
         answer += min(fruit_box) * m
