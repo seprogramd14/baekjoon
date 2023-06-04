@@ -5,10 +5,8 @@ def solution(people, limit):
     people.sort()
     people = deque(people)
     while people:
-        if len(people) >= 2:
-            if people[0] + people[-1] <= limit:
-                people.popleft()
+        if len(people) >= 2 and people[0] + people[-1] <= limit:
+            people.popleft()
         answer += 1
         people.pop()
-        # print(people)
     return answer
