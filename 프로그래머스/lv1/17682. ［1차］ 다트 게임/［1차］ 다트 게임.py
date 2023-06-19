@@ -2,7 +2,7 @@ def solution(dartResult):
     answer, save, cut = 0, [], 0 # 더 보기 좋은 답은 얼마든지 있다
     for i in range(len(dartResult)):
         try:
-            if dartResult[i] == '1' and dartResult[i+1] == '0':
+            if dartResult[i:i+2] == '10':
                 save.append(10)
                 cut = 1
             elif cut == 1: cut = 0
