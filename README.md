@@ -1,2 +1,2 @@
 # 파이썬으로 백준 알고리즘 풀기
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+백준허브로 깃허브에 자동으로 커밋 [백준허브](https://github.com/BaekjoonHub/BaekjoonHub).
