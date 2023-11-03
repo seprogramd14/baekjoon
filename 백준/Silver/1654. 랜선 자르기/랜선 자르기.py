@@ -5,7 +5,7 @@ n, k = list(map(int, input().split()))
 cables = sorted([int(input()) for _ in range(n)])
 
 start = 1
-end = sum(cables)
+end = max(cables)
 
 while start <= end:
 	mid = (start + end) // 2
