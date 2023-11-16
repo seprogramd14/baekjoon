@@ -1,5 +1,4 @@
 def solution(lines):
-    [[4, 7], [4, 5], [6, 7]]
     max_v, min_v =  max(map(max, lines)), min(map(min, lines))
     line = []
     if min_v < 0:
