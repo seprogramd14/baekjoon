@@ -12,14 +12,15 @@ return : 1번 노드에서 가장 많이 떨어진 노드의 개수
 from collections import deque
 
 def bfs(graph, start, n):
-    queue = deque([[start, 0]])
+    queue = deque([start])
     visited = [0] * (n+1)
+    visited[1] = 1
     while queue:
-        node, last = queue.popleft()
-        if not visited[node]:
-            visited[node] = visited[last] + 1
-            for n in graph[node]:
-                queue.append([n, node])
+        node = queue.popleft()
+        for n in graph[node]:
+            if not visited[n]:
+                visited[n] = visited[node] + 1
+                queue.append(n)
     return visited
 
 def solution(n, edge):
