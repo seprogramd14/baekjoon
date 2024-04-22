@@ -1,20 +1,12 @@
-import sys
-input = sys.stdin.readline
 n = int(input())
-card = list(map(int, input().split()))
-sort_card = sorted(card)
-
-if 1 not in sort_card:
-    print(len(card))
-    exit()
-count = 0
-fix = 0
-while fix != len(card):
-    for i in range(fix, len(card)):
-        if i + 1 == card[i]:
-            fix += 1
+ls = list(map(int, input().split()))
+fix, r = 0, 0
+for i in range(1, n+1):
+    if len(ls) <= fix:
+        break
+    while ls[fix] != i:
+        del ls[fix]
+        if len(ls) == fix:
             break
-        else:
-            card = card[:fix] + card[fix+1:]
-            count += 1
-print(count)
+    fix += 1
+print(n - len(ls))
