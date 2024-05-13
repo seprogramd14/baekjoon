@@ -4,7 +4,7 @@ input = sys.stdin.readline
 n = int(input())
 for t in range(n):
     n, m, k, D = map(int, input().split())
-    a, b = m*(m-1)*k, (n-1)*m*m
+    a, b = n*(m*(m-1)//2)*k, (n*(n-1)//2)*m*m
     B = D // (a+b)
     if B == 0:
         print(-1)
