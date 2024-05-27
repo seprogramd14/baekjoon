@@ -1,23 +1,23 @@
 import sys
+from collections import deque
 input = sys.stdin.readline
 
-def process(string, c1, c2, cnt):
-    ls = []
-    count = cnt
-    for s in string:
-        if s == c2:
-            j = len(ls) - 1
-            while j >= 0:
-                if ls[j] == c1:
-                    del ls[j]
-                    count += 1
-                    break
-                j -= 1
-        else:
-            ls.append(s)
-    return ''.join(ls), count
+a, b, c = deque(), deque(), deque()
+s = input().rstrip()
+count = 0
 
-string = input().rstrip()
-string, cnt = process(string, "B", "C", 0)
-_, cnt = process(string, "A", "B", cnt)
-print(cnt)
+for i in range(len(s)):
+    if s[i] == 'A':
+        a.append(i)
+    elif s[i] == "B":
+        b.append(i)
+    elif b:
+        b.popleft()
+        count += 1
+
+while a and b:
+    if a[0] < b[0]:
+        a.popleft()
+        count += 1
+    b.popleft()
+print(count)
