@@ -1,7 +1,5 @@
+import sys
+input = sys.stdin.readline
 n = int(input())
-lis = []
-for i in range(n):
-    lis.append(int(input()))
-lis.sort()
-for i in lis:
-    print(i)
+ls = [int(input()) for _ in range(n)]
+print(*sorted(ls), sep='\n')
