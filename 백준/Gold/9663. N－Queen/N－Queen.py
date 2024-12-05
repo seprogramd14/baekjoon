@@ -1,14 +1,13 @@
 import sys
-import time
 input = sys.stdin.readline
 
 n = int(input())
 board = [[0] * n for _ in range(n)]
 width = [0] * n
-d = [(-1, -1), (1, -1), (-1, 1), (1, 1)] # 위, 아래, 왼쪽 위, 왼쪽 아래, 오른쪽 위, 오른쪽 아래
+d = [(-1, -1), (1, -1), (-1, 1), (1, 1)] # 왼쪽 위, 왼쪽 아래, 오른쪽 위, 오른쪽 아래
 
 cnt = 0
-def queen_check(start): # 세로선과 대각선 2개 따져보기 (자신의 자리는 제외)
+def queen_check(start): # 대각선 2개 따져보기 (자신의 자리는 제외)
     global board
     for dx, dy in d:
         x, y = start
