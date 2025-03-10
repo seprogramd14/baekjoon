@@ -1,18 +1,14 @@
 import sys
 input = sys.stdin.readline
 
-brackets = list(input().rstrip())
-stack = ['(']
-count = 0
+bucket = input().rstrip()
+stack = []
 
-for i in range(1, len(brackets)):
-    if brackets[i] == ')':
+result = 0
+for i in range(len(bucket)):
+    if bucket[i] == "(":
+        stack.append(bucket[i])
+    else:
         stack.pop()
-        if brackets[i-1] == '(':
-            count += len(stack)
-        elif brackets[i-1] == ')':
-            count += 1
-    elif brackets[i] == '(':
-        stack.append('(')
-
-print(count)
+        result += len(stack) if bucket[i-1] == "(" else 1
+print(result)
