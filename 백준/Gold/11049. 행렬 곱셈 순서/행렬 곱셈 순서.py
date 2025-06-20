@@ -10,7 +10,6 @@ dp = [[0]*matrix_num for _ in range(matrix_num)]
 for iter in range(1, matrix_num):
     for row in range(matrix_num-iter):
         col = iter + row
-        dp[row][col] = 2**32
-        for k in range(row, col):
-            dp[row][col] = min(dp[row][col], dp[row][k]+dp[k+1][col] + matrix[row]*matrix[k+1]*matrix[col+1])
+        min_value = [dp[row][k]+dp[k+1][col] + matrix[row]*matrix[k+1]*matrix[col+1] for k in range(row, col)]
+        dp[row][col] = min(min_value)
 print(dp[0][matrix_num-1])
